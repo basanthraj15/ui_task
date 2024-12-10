@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:task_app/Screens/StocksScreen.dart';
 import 'package:task_app/utils/Colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,32 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   final PageController _pageController = PageController();
-  int _currentPage = 0;
-
+  //int _currentPage = 0;
   int _selectedIndex = 0;
-
-  final List<BottomNavigationBarItem> items = [
-    BottomNavigationBarItem(
-      icon: Image.asset("assets/Images/home.png"),
-      label: 'Home',
-    ),
-    BottomNavigationBarItem(
-      icon: Image.asset("assets/Images/msg.png"),
-      label: 'NBP',
-    ),
-    BottomNavigationBarItem(
-      icon: Image.asset("assets/Images/cash.png"),
-      label: 'Smallcase',
-    ),
-    BottomNavigationBarItem(
-      icon: Image.asset("assets/Images/plans.png"),
-      label: 'Plans',
-    ),
-    BottomNavigationBarItem(
-      icon: Image.asset("assets/Images/menu.png"),
-      label: 'Menu',
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SingleChildScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -156,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             10)),
-                                                                child: Column(
+                                                                child: const Column(
                                                                   crossAxisAlignment:
                                                                       CrossAxisAlignment
                                                                           .center,
@@ -198,6 +177,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       ),
                                                     ),
                                                   ),
+                                                  SizedBox(
+                                                    height:
+                                                        screenHeight * 0.007,
+                                                  ),
                                                   Padding(
                                                     padding:
                                                         const EdgeInsets.all(
@@ -238,9 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ],
                                               ),
                                             )
-                                          : 
-
-                                          Padding(
+                                          : Padding(
                                               padding:
                                                   const EdgeInsets.all(8.0),
                                               child: Container(
@@ -459,7 +440,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .all(AppColors
                                                                       .lightgreyBlue),
                                                         ),
-                                                        onPressed: () {},
+                                                        onPressed: () {
+                                                          _showBottomSheet(
+                                                              context);
+                                                        },
                                                         child: const Text(
                                                           "Exit Trade",
                                                           style: TextStyle(
@@ -517,7 +501,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             SmoothPageIndicator(
                               controller: _pageController,
                               count: 5,
-                              effect: ExpandingDotsEffect(
+                              effect: const ExpandingDotsEffect(
                                 dotWidth: 8.0,
                                 dotHeight: 8.0,
                                 spacing: 8.0,
@@ -540,11 +524,11 @@ class _HomeScreenState extends State<HomeScreen> {
               color: AppColors.lightgreyBlue,
               height: screenHeight * 0.06,
               width: screenWidth,
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                    padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -608,12 +592,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.start,
                                                 children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets
+                                                  const Padding(
+                                                    padding: EdgeInsets
                                                         .fromLTRB(8, 24, 0, 0),
                                                     child: Row(
                                                       children: [
-                                                        const Text(
+                                                        Text(
                                                           "08 DEC 2024 | 02.54 PM",
                                                           style: TextStyle(
                                                               fontSize: 8),
@@ -714,7 +698,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                 width:
                                                                     screenWidth *
                                                                         0.28,
-                                                                child: Row(
+                                                                child: const Row(
                                                                   mainAxisAlignment:
                                                                       MainAxisAlignment
                                                                           .center,
@@ -779,13 +763,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
                                               children: [
-                                                Padding(
+                                                const Padding(
                                                   padding:
-                                                      const EdgeInsets.fromLTRB(
+                                                      EdgeInsets.fromLTRB(
                                                           8, 24, 0, 0),
                                                   child: Row(
                                                     children: [
-                                                      const Text(
+                                                      Text(
                                                         "08 DEC 2024 | 02.54 PM",
                                                         style: TextStyle(
                                                             fontSize: 8),
@@ -887,7 +871,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               width:
                                                                   screenWidth *
                                                                       0.28,
-                                                              child: Row(
+                                                              child: const Row(
                                                                 mainAxisAlignment:
                                                                     MainAxisAlignment
                                                                         .center,
@@ -979,7 +963,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 SmoothPageIndicator(
                   controller: _pageController,
                   count: 5,
-                  effect: ExpandingDotsEffect(
+                  effect: const ExpandingDotsEffect(
                     dotWidth: 8.0,
                     dotHeight: 8.0,
                     spacing: 8.0,
@@ -1048,8 +1032,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       ],
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding: const EdgeInsets
+                                                  const Padding(
+                                                    padding: EdgeInsets
                                                         .fromLTRB(8, 0, 0, 0),
                                                     child: Column(
                                                       children: [
@@ -1067,7 +1051,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsets
+                                                                  EdgeInsets
                                                                       .fromLTRB(
                                                                       8,
                                                                       0,
@@ -1133,9 +1117,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           ],
                                                         ),
                                                       ),
-                                                      Padding(
+                                                      const Padding(
                                                         padding:
-                                                            const EdgeInsets
+                                                            EdgeInsets
                                                                 .fromLTRB(
                                                                 8, 0, 0, 0),
                                                         child: Column(
@@ -1154,7 +1138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                 ),
                                                                 Padding(
                                                                   padding:
-                                                                      const EdgeInsets
+                                                                      EdgeInsets
                                                                           .fromLTRB(
                                                                           8,
                                                                           0,
@@ -1189,84 +1173,93 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ),
                                               ),
                                             )
-                                          : Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                    color: AppColors.white,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10)),
-                                                width: screenWidth * 0.2,
-                                                height: screenHeight * 0.9,
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Padding(
-                                                      padding: const EdgeInsets
-                                                          .fromLTRB(8, 5, 0, 5),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Image.asset(
-                                                              "assets/Images/1.png"),
-                                                        ],
+                                          : InkWell(
+                                              onTap: () {
+                                                Get.to(const StocksScreen());
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                      color: AppColors.white,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10)),
+                                                  width: screenWidth * 0.2,
+                                                  height: screenHeight * 0.9,
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .fromLTRB(
+                                                                8, 5, 0, 5),
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Image.asset(
+                                                                "assets/Images/1.png"),
+                                                          ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding: const EdgeInsets
-                                                          .fromLTRB(8, 0, 0, 0),
-                                                      child: Column(
-                                                        children: [
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Text(
-                                                                "STOCKS",
-                                                                style: TextStyle(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsets
-                                                                        .fromLTRB(
-                                                                        8,
-                                                                        0,
-                                                                        0,
-                                                                        0),
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .arrow_forward_ios_outlined,
-                                                                  size: 16,
+                                                      const Padding(
+                                                        padding:
+                                                            EdgeInsets
+                                                                .fromLTRB(
+                                                                8, 0, 0, 0),
+                                                        child: Column(
+                                                          children: [
+                                                            Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  "STOCKS",
+                                                                  style: TextStyle(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold),
                                                                 ),
-                                                              )
-                                                            ],
-                                                          ),
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Text(
-                                                                "Trades",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        10),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
+                                                                Padding(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .fromLTRB(
+                                                                          8,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .arrow_forward_ios_outlined,
+                                                                    size: 16,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                            ),
+                                                            Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  "Trades",
+                                                                  style: TextStyle(
+                                                                      fontSize:
+                                                                          10),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -1285,17 +1278,435 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: items,
+        items: [
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 0
+                ? Image.asset(
+                    "assets/Images/home.png",
+                    color: AppColors.black,
+                  )
+                : Image.asset(
+                    "assets/Images/home.png",
+                    color: AppColors.grey,
+                  ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 1
+                ? Image.asset(
+                    "assets/Images/msg.png",
+                    color: AppColors.black,
+                  )
+                : Image.asset("assets/Images/msg.png"),
+            label: 'NBP',
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 2
+                ? Image.asset(
+                    "assets/Images/cash.png",
+                    color: AppColors.black,
+                  )
+                : Image.asset("assets/Images/cash.png"),
+            label: 'Smallcase',
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 3
+                ? Image.asset(
+                    "assets/Images/plans.png",
+                    color: AppColors.black,
+                  )
+                : Image.asset("assets/Images/plans.png"),
+            label: 'Plans',
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 4
+                ? Image.asset(
+                    "assets/Images/menu.png",
+                    color: AppColors.black,
+                  )
+                : Image.asset("assets/Images/menu.png"),
+            label: 'Menu',
+          ),
+        ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: AppColors.deepBlue,
         unselectedItemColor: AppColors.grey,
-        selectedLabelStyle: TextStyle(color: AppColors.deepBlue),
-        unselectedLabelStyle: TextStyle(color: AppColors.grey),
+        unselectedLabelStyle: const TextStyle(color: AppColors.grey),
+        selectedLabelStyle: const TextStyle(color: AppColors.black),
         showSelectedLabels: true,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
       ),
+    );
+  }
+
+  
+  void _showBottomSheet(BuildContext context) {
+    double screenHeight = Get.height;
+    double screenWidth = Get.width;
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: AppColors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
+      ),
+      builder: (BuildContext context) {
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'CLOSED TRADES',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.close,
+                        size: 25,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.03),
+              Stack(
+                clipBehavior: Clip.none,
+                alignment: Alignment.topCenter,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.redAccent.withOpacity(0.04),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    height: screenHeight * 0.34,
+                    width: screenWidth * 0.9,
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    "assets/Images/hdfc.png",
+                                    width: screenWidth * 0.2,
+                                    height: screenHeight * 0.04,
+                                    fit: BoxFit.contain,
+                                  ),
+                                  const Text(
+                                    'HDFC Bank',
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    height: screenHeight * 0.03,
+                                    width: screenWidth * 0.28,
+                                    decoration: const BoxDecoration(
+                                      color: AppColors.green,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(15),
+                                        bottomLeft: Radius.circular(15),
+                                        topRight: Radius.zero,
+                                        bottomRight: Radius.zero,
+                                      ),
+                                    ),
+                                    child: const Center(
+                                      child: Text(
+                                        "Profit Booked",
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: AppColors.white),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: screenHeight * 0.015,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(8, 10, 5, 0),
+                          child: Row(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: AppColors.black),
+                                  color: AppColors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                width: screenWidth * 0.4,
+                                height: screenHeight * 0.15,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      width: double.infinity,
+                                      height: 20,
+                                      decoration: BoxDecoration(
+                                        color:
+                                            AppColors.purple.withOpacity(0.09),
+                                        borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10),
+                                        ),
+                                      ),
+                                      child: const Center(
+                                        child: Text(
+                                          'Entry',
+                                          style: TextStyle(
+                                            color: AppColors.purple,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          height: screenHeight * 0.02,
+                                        ),
+                                        const Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "65484.22",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ],
+                                        ),
+                                        const Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "08 Dec 24 | 02:45pm",
+                                              style: TextStyle(
+                                                  color: AppColors.grey,
+                                                  fontSize: 12),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                width: screenWidth * 0.03,
+                              ),
+                              Row(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      border:
+                                          Border.all(color: AppColors.black),
+                                      color: AppColors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    width: screenWidth * 0.4,
+                                    height: screenHeight * 0.15,
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          width: double.infinity,
+                                          height: 20,
+                                          decoration: BoxDecoration(
+                                            color:
+                                                AppColors.red.withOpacity(0.09),
+                                            borderRadius: const BorderRadius.only(
+                                              topLeft: Radius.circular(10),
+                                              topRight: Radius.circular(10),
+                                            ),
+                                          ),
+                                          child: const Center(
+                                            child: Text(
+                                              'Exit',
+                                              style: TextStyle(
+                                                color: AppColors.red,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 14,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            SizedBox(
+                                              height: screenHeight * 0.02,
+                                            ),
+                                            const Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  "65484.22",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ],
+                                            ),
+                                            const Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  "08 Dec 24 | 02:45pm",
+                                                  style: TextStyle(
+                                                      color: AppColors.grey,
+                                                      fontSize: 12),
+                                                )
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: screenHeight * 0.015,
+                        ),
+                        Container(
+                          height: screenHeight * 0.055,
+                          width: screenWidth * 0.8,
+                          decoration: BoxDecoration(
+                            color: AppColors.green,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "Net gain: 0.07% in 81 days",
+                              style: TextStyle(
+                                  fontSize: 14, color: AppColors.white,fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    top: -25,
+                    left: screenWidth * 0.34,
+                    child: Chip(
+                      label: const Text(
+                        'Short Term',
+                        style: TextStyle(
+                          color: AppColors.deepBlue,
+                          fontSize: 10,
+                        ),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 6,
+                        vertical: 1,
+                      ),
+                      backgroundColor: AppColors.redAccent.withOpacity(0.025),
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                          color: AppColors.deepBlue,
+                          width: 1.5,
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: screenHeight * 0.03),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: screenHeight * 0.05,
+                    width: screenWidth * 0.4,
+                    child: OutlinedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          AppColors.lightgreyBlue,
+                        ),
+                        side: MaterialStateProperty.all(
+                          const BorderSide(color: AppColors.black, width: 1),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: const Text(
+                        "About Trade",
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: screenWidth * 0.03),
+                  SizedBox(
+                    height: screenHeight * 0.05,
+                    width: screenWidth * 0.4,
+                    child: OutlinedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          AppColors.purple,
+                        ),
+                        side: MaterialStateProperty.all(
+                          const BorderSide(color: AppColors.purple, width: 1),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: const Text(
+                        "Exit Trade",
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

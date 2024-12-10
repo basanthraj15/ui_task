@@ -71,6 +71,9 @@ flutter:
     - assets/Images/menu.png
     - assets/Images/msg.png
     - assets/Images/plans.png
+    - assets/Images/stocks.png
+    - assets/Images/fo.png
+    - assets/Images/line.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

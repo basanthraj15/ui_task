@@ -14,6 +14,8 @@ class AppColors {
   static const Color Orangebutton = Color(0xFFF17233);
   static const Color lightYellow = Color(0xFFD9FB78);
   static const Color lightgreyBlue = Color(0xFFF2F5FB);
-  static  Color lightGreen = Color(0xFF0BB965).withOpacity(0.1);
- 
+  static Color lightGreen = Color(0xFF0BB965).withOpacity(0.1);
+  static const Color purple = Color(0xFF9747FF);
+  static const Color red = Colors.red;
+  static const Color redAccent = Color(0xFFF24345);
 }
