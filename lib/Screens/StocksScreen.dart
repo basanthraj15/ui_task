@@ -22,7 +22,7 @@ class _StocksScreenState extends State<StocksScreen> {
         scrollDirection: Axis.horizontal,
         child: SafeArea(
           child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
+            scrollDirection: Axis.vertical,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
